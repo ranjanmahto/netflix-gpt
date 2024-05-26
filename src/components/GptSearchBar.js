@@ -3,7 +3,8 @@ import lang from '../utils/languageConstants'
 import { useDispatch, useSelector } from 'react-redux'
 import genAI from '../utils/openai'
 import { options } from '../utils/constants'
-import { addGptMovies } from '../utils/gptSlice'
+import { addGptMovies, clearGptMovies } from '../utils/gptSlice'
+import { HarmBlockThreshold, HarmCategory } from '@google/generative-ai'
 
 
 
@@ -18,6 +19,25 @@ const GptSearchBar = () => {
   const searchText= useRef(null);
   const dispatch= useDispatch();
 
+  const safetySettings = [
+    {
+      category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+      threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+    },
+    {
+      category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+      threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+    },
+    {
+      category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+      threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+    },
+    {
+      category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+      threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+    },
+  ];
+
   const searchMovieTMDB= async (movie)=>{
    const data= await fetch('https://api.themoviedb.org/3/search/movie?query='+movie, options)
    const response=await data.json();
@@ -25,11 +45,12 @@ const GptSearchBar = () => {
    return response.results;
   }
   const handleGptSearchClick= async ()=> {
+    dispatch(clearGptMovies());
 
 
-    const modified_query= "please act as a movie recomendation system and give me 6 names of " +searchText.current.value+" Plese only provide the names of the movie and nothing else and the movies name should be comma separated and dont provide the link";
+    const modified_query= "Provide me with a list of 6 highly-rated movies that are"+ searchText.current.value+"and released in the last 10 years ,please only provide the names with comma seperated and nothing else";
     
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest"});
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest"},safetySettings);
 
     
   
@@ -50,12 +71,10 @@ const GptSearchBar = () => {
     dispatch(addGptMovies({moviesNames:gptMovies, moviesResults:tmdbMovies}));
 
 
-    
-    
-
-
-
   }
+
+  
+
   return (
     <div className="pt-[8%] flex justify-center mb-4 rounded-3xl " >
         <form className=" grid grid-cols-12 bg-black w-1/2" onSubmit={(e)=>{

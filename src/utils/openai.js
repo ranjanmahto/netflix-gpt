@@ -1,8 +1,8 @@
 
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import {OPEN_API_KEY} from "./constants"
 
-const genAI = new GoogleGenerativeAI("AIzaSyDXh7wXtRC_lUPywWevAWCzH_itknyGJv8");
+
+const genAI = new GoogleGenerativeAI(process.env.REACT_APP_OPEN_API_KEY);
 
 export default genAI;

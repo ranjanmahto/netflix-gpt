@@ -12,6 +12,7 @@ const Header= ()=>{
 
     const dispath = useDispatch();
     const navigate= useNavigate();
+    const gpt= useSelector(store=>store.gpt.showGptSearch);
     
 
     const user= useSelector((appStore)=>appStore.user)
@@ -31,9 +32,9 @@ const Header= ()=>{
     };
 
     const handleGptSearchClick= ()=>{
+
       dispath(toggleGptSearchView());
       
-
     }
     const handleLanguageChange=(e)=>{
       
@@ -71,7 +72,7 @@ const Header= ()=>{
               
        },[]);
     return (
-        <div className=" absolute  w-screen bg-gradient-to-b from-black z-10 flex justify-between px-4">
+        <div className=" absolute  w-screen bg-gradient-to-b from-black z-10 flex  px-4">
             <div className="w-44">
                     <img className="w-48"
                     src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png" 
@@ -80,23 +81,36 @@ const Header= ()=>{
             
             </div>
 
-           {user && <div className=" z-10 mx-5 my-3 flex flex-col lg:flex-row  justify-between gap-2 cursor-pointer" >
+           {user && <div className=" z-10 mx-5 my-3 flex flex-col lg:flex-row  justify-between gap-2 cursor-pointer w-screen" >
 
 
-              <select className=" w-15 h-5 md:w-20 md:h-8 rounded-md" onChange={handleLanguageChange}>
-                 {SUPPORTED_LANGUAGES.map((lang)=>  <option value={lang.identifier} key={lang.identifier}>{lang.name}</option>)}
-              </select>
+                         <div className="flex gap-6 items-baseline">
+                                 
+                            <select className=" w-15 h-5 md:w-20 md:h-8 rounded-md" onChange={handleLanguageChange}>
+                    {SUPPORTED_LANGUAGES.map((lang)=>  <option value={lang.identifier} key={lang.identifier}>{lang.name}</option>)}
+                  </select>
 
-                 <button className=" w-14   md:w-40 md:h-10 p-2 rounded-lg bg-purple-600 mr-5 " onClick={handleGptSearchClick} >
-                   GPT Search
-                 </button>
+                    <button className=" w-14   md:w-40 md:h-10 p-2 rounded-lg  mr-5 font-semibold text-white " onClick={handleGptSearchClick} >
+
+                    <a href="#_" class="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
+<span class="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute"></span>
+<span class="relative px-6 py-2 transition-all ease-out bg-gray-900 rounded-md group-hover:bg-opacity-0 duration-400">
+<span class="relative text-white"> {gpt ? "Homepage":"GPT Search"}</span>
+</span>
+</a>
+                     
+                    </button>
+                            
+                         </div>
+
 
            
-                    <img className="w-9 h-9" onClick={handleSignOut} 
-                    src="https://cdn-icons-png.flaticon.com/512/1053/1053210.png" 
-                    alt="logout icon"/>
+                    <div className="w-25 bg-red-700  rounded-2xl text-center p-2 mr-4" >
+                    
 
                     <p className="text-white font-bold" onClick={handleSignOut} >Sign Out</p>
+
+                    </div>
 
             </div>}
         
