@@ -48,6 +48,7 @@ const Login=()=>{
                   }).then(() => {
                     const {email,displayName,uid}= auth.currentUser;
                       dispath(addUser({uid:uid, displayName:displayName,email:email}))
+                      navigate("/browse");
                   
                     
                   }).catch((error) => {
