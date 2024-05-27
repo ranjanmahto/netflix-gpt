@@ -105,10 +105,10 @@ const Header= ()=>{
 
 
            
-                    <div className="w-25 bg-red-700  rounded-2xl text-center p-2 mr-4" >
+                    <div className="sm:w-10 md:w-20 lg:w-32 bg-red-700  rounded-2xl text-center p-4 mr-4" >
                     
 
-                    <p className="text-white font-bold" onClick={handleSignOut} >Sign Out</p>
+                       <p className="text-white font-bold" onClick={handleSignOut} >Sign Out</p>
 
                     </div>
 

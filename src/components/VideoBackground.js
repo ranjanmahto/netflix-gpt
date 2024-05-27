@@ -9,6 +9,12 @@ const VideoBackground = ({movieId}) => {
   const dispatch= useDispatch();
 
     const getMovieVideos= async ()=>{
+      if(trailerVideo!=null)
+        {
+          console.log("movie replay");
+          return;
+        }
+        console.log("movie play")
       
        const data= await fetch("https://api.themoviedb.org/3/movie/"+movieId+"/videos?language=en-US",options);
        const response= await data.json();
@@ -33,7 +39,7 @@ const VideoBackground = ({movieId}) => {
     <div className="w-screen">
 
 <iframe className="w-screen aspect-video"
- src={"https://www.youtube.com/embed/hXzcyx9V0xw?si="+ trailerVideo+"?&autoplay=1&mute=1"} 
+ src={"https://www.youtube.com/embed/hXzcyx9V0xw?si="+ trailerVideo+"?&autoplay=1&mute=1&loop=1"} 
  title='Youtube Trailer'
  
   

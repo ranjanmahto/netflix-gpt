@@ -88,14 +88,14 @@ const Login=()=>{
         <div className="w-full h-full">
              <Header/>
 
-             <img className="absolute w-full h-full"
+             <img className="absolute w-full h-full object-cover"
              
               src="https://assets.nflxext.com/ffe/siteui/vlv3/ff5587c5-1052-47cf-974b-a97e3b4f0656/065df910-dec3-46ae-afa8-7ad2b52dce40/IN-en-20240506-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
              alt="background" />
 
              <div className="absolute  bg-black bg-opacity-80 z-20 left-[39%] top-[5.19rem] w-[25rem] h-[38rem] flex flex-col justify-center items-center gap-7 p-10">  
 
-                <h1 className="text-white font-bold text-2xl">Log In</h1>
+                <h1 className="text-white font-bold text-4xl">{!isSignIn?"Sign Up":"Log In"}</h1>
 
                  <form onSubmit={(e)=>
                 
@@ -114,12 +114,23 @@ const Login=()=>{
 
                          <p className="font-bold text-md py-1 text-red-600 " >{errorMessage}</p>
 
-                         <button className="bg-red-600 rounded-md my-2 py-1 h-12 text-lg font-semibold" onClick={signInButton}>      
+                         <button className="  p-2 rounded-lg   font-semibold text-white " onClick={signInButton} >
+
+                    <a href="" className="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md ">
+<span class="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute"></span>
+<span class="relative px-6 py-2 transition-all ease-out bg-gray-900 rounded-md group-hover:bg-opacity-0 duration-400">
+<span class="relative text-white"> {isSignIn?"Log In":"Create Account"}</span>
+</span>
+</a>
+                     
+                    </button>
+
+                         {/* <button className="bg-red-700 rounded-md my-2 py-1 h-12 text-lg font-semibold" onClick={signInButton}>      
                             
                             {isSignIn?"Log In":"Create Account"}
                             
 
-                         </button>
+                         </button> */}
 
                          <p className="text-white cursor-pointer" onClick={toggle}>{isSignIn?"Not Registered ? Sign Up":"Already customer? Log IN"}</p>
 

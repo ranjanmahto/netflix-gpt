@@ -27,8 +27,8 @@ const Details = ({id}) => {
          
          <div className="p-5 flex flex-col gap-5">
             <div className="flex gap-4">
-                <h1 className="font-bold text-lg" >Name:</h1>
-                <h1 className="font-semibold " >{details?.title}</h1>
+                
+                <h1 className="font-bold  text-4xl" >{details?.title} <span className="font-semibold text-gray-500">({details?.release_date})</span> </h1>
             </div>
 
             <div className="flex gap-4">
@@ -66,7 +66,7 @@ const Details = ({id}) => {
             </div>
 
 
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 ">
                 <h1 className="font-bold text-xl" >
                     Overview:
                 </h1>
@@ -78,9 +78,9 @@ const Details = ({id}) => {
                 </p>
             </div>
          </div>
-         <div className="mr-20 mt-10" >
+         <div className="mr-5 mt-10" >
        
-             <img className="rounded-lg w-30" src={IMG_CDN_URL+ details?.poster_path} alt="movie"/>
+             <img className="rounded-lg w-[70rem]" src={IMG_CDN_URL+ details?.poster_path} alt="movie"/>
 
         </div>
 
