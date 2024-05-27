@@ -89,12 +89,12 @@ const Login=()=>{
         <div className="w-full h-full">
              <Header/>
 
-             <img className="absolute w-full h-full object-cover"
+             <img className="absolute w-full h-full object-cover contrast-125 brightness-105 "
              
-              src="https://assets.nflxext.com/ffe/siteui/vlv3/ff5587c5-1052-47cf-974b-a97e3b4f0656/065df910-dec3-46ae-afa8-7ad2b52dce40/IN-en-20240506-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
+              src="https://deeplor.s3.us-west-2.amazonaws.com/upload/2024/05/27/5bb0d519b4714b9c8de1e61b3eca9e68.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240527T185909Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10800&X-Amz-Credential=AKIAROYXHKZUSZONTWIG%2F20240527%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=911c525972878532ebf74e30547f721d81b06040deb9c609ed68f9c83efe5a17"
              alt="background" />
 
-             <div className="absolute  bg-black bg-opacity-80 z-20 left-[39%] top-[5.19rem] w-[25rem] h-[38rem] flex flex-col justify-center items-center gap-7 p-10">  
+             <div className="absolute  bg-black bg-opacity-60 z-20 left-[39%] top-[5.19rem] w-[25rem] h-[38rem] flex flex-col justify-center items-center gap-7 p-10 pt-1  shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)]  ">  
 
                 <h1 className="text-white font-bold text-4xl">{!isSignIn?"Sign Up":"Log In"}</h1>
 
@@ -102,27 +102,29 @@ const Login=()=>{
                 
                    e.preventDefault()} className="flex flex-col gap-6 w-[100%] text-white">              
 
-                        {!isSignIn && <input ref={name} type="text" placeholder="Name" className="rounded-md p-1 bg-gray-800">       
+                        {!isSignIn && <input ref={name} type="text" placeholder="Name" className="rounded-md p-1 bg-gray-800 h-12 ">       
                                
                              </input>}
                          <input  ref={email} type="email" placeholder="Email" className=" rounded-md p-1 bg-gray-800 h-12 " >
 
                          </input>
 
-                         <input ref={password} type="password" placeholder="Password" className=" rounded-md p-1 bg-gray-800 h-12">
+                         <input ref={password} type="password" placeholder="Password" className=" rounded-md p-1 bg-gray-800 h-12 ">
                          
                          </input>
 
                          <p className="font-bold text-md py-1 text-red-600 " >{errorMessage}</p>
 
-                         <button className="  p-2 rounded-lg   font-semibold text-white " onClick={signInButton} >
+                         <button className=" w-[10rem]  rounded-lg    font-semibold text-white mx-auto " onClick={signInButton} >
 
-                    <a href="" className="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md ">
-<span class="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute"></span>
-<span class="relative px-6 py-2 transition-all ease-out bg-gray-900 rounded-md group-hover:bg-opacity-0 duration-400">
-<span class="relative text-white"> {isSignIn?"Log In":"Create Account"}</span>
-</span>
-</a>
+                                <a href="" className="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md w-[100%] ">
+                                    <span class="w-[100%] h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute"></span>
+                                    <span class="w-[100%] relative px-6 py-2 transition-all ease-out bg-gray-900 rounded-md group-hover:bg-opacity-0 duration-400">
+                                          <span class="relative text-white">
+                                             {isSignIn?"Log In":"Create Account"}
+                                          </span>
+                                    </span>
+                               </a>
                      
                     </button>
 
