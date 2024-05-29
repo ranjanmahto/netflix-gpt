@@ -23,13 +23,13 @@ const Browse = ()=>{
     
 
     return (
-        <div className="w-screen">
+        <div className="w-screen bg-black">
             <Header/>
-            <img className="absolute w-full h-screen object-fit
+            {/* <img className="absolute w-full h-screen object-fit
              -z-10"
              
              src="https://assets.nflxext.com/ffe/siteui/vlv3/ff5587c5-1052-47cf-974b-a97e3b4f0656/065df910-dec3-46ae-afa8-7ad2b52dce40/IN-en-20240506-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
-            alt="background" />
+            alt="background" /> */}
             {
                 showGpt ?<GptSearch/>:<>
                  <MainContainer/>

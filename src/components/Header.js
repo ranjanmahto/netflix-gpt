@@ -23,6 +23,7 @@ const Header= ()=>{
         signOut(auth).then(() => {
             // Sign-out successful.
             dispath(removeUser());
+            
             // navigate("/");
 
 
@@ -72,7 +73,7 @@ const Header= ()=>{
               
        },[]);
     return (
-        <div className=" absolute  w-screen bg-gradient-to-b from-black z-10 flex  px-4">
+        <div className=" absolute  w-screen bg-gradient-to-b from-black z-50 flex  px-4">
             <div className="w-44">
                     <img className="w-48"
                     src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png" 
@@ -106,7 +107,7 @@ const Header= ()=>{
 
 
 
-                         <button type="button" onClick={handleSignOut} class="font-bold text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                         <button type="button" onClick={handleSignOut} className="font-bold text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400  rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-[4rem] md:w-[8rem]">
                          Sign Out →
                           </button>
 

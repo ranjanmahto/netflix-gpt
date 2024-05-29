@@ -19,6 +19,7 @@ const VideoBackground = ({movieId}) => {
        const data= await fetch("https://api.themoviedb.org/3/movie/"+movieId+"/videos?language=en-US",options);
        const response= await data.json();
        
+       
         
        const filteredData= response?.results?.filter((movie)=>movie?.type==="Trailer");
         
@@ -33,6 +34,8 @@ const VideoBackground = ({movieId}) => {
 
         getMovieVideos();
         },[])
+
+        
 
 
   return (
