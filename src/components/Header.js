@@ -73,9 +73,9 @@ const Header= ()=>{
               
        },[]);
     return (
-        <div className=" absolute  w-screen bg-gradient-to-b from-black z-50 flex  px-4">
+        <div className=" absolute  w-screen bg-gradient-to-b from-black  z-50  flex  px-4 h-20">
             <div className="w-44">
-                    <img className="w-48"
+                    <img className="w-48 contrast-150"
                     src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png" 
                     alt="logo"/>
 

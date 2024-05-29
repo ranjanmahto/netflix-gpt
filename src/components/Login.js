@@ -70,7 +70,7 @@ const Login=()=>{
             .then((userCredential) => {
               // Signed in 
               const user = userCredential.user;
-              // navigate("/browse");
+              navigate("/browse");
               // ...
             })
             .catch((error) => {
@@ -91,25 +91,33 @@ const Login=()=>{
 
              <img className="absolute w-full h-full object-cover contrast-125 brightness-105 "
              
-              src="https://deeplor.s3.us-west-2.amazonaws.com/upload/2024/05/27/5bb0d519b4714b9c8de1e61b3eca9e68.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240527T185909Z&X-Amz-SignedHeaders=host&X-Amz-Expires=10800&X-Amz-Credential=AKIAROYXHKZUSZONTWIG%2F20240527%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Signature=911c525972878532ebf74e30547f721d81b06040deb9c609ed68f9c83efe5a17"
+              src="https://images.unsplash.com/photo-1535016120720-40c646be5580?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
              alt="background" />
 
-             <div className="absolute  bg-black bg-opacity-60 z-20 left-[39%] top-[5.19rem] w-[25rem] h-[38rem] flex flex-col justify-center items-center gap-7 p-10 pt-1  shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)]  ">  
+             <h1 className="text-white absolute text-3x md:text-6xl top-[19%] left-[45%] font-black ">Unlimited Movies, TV Shows and more</h1>
 
-                <h1 className="text-white font-bold text-4xl">{!isSignIn?"Sign Up":"Log In"}</h1>
-
-                 <form onSubmit={(e)=>
+             <div className="absolute  bg-black bg-opacity-10 z-20 left-[15%] top-[5.19rem] w-[10rem]  md:w-[25rem] md:h-[30rem]   rounded-xl flex flex-col justify-center items-center gap-7 p-14 pt-1  hover:shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)]   border hover:border-black hover:scale-[1.1190] duration-300  ">  
+                 
+             
                 
-                   e.preventDefault()} className="flex flex-col gap-6 w-[100%] text-white">              
 
-                        {!isSignIn && <input ref={name} type="text" placeholder="Name" className="rounded-md p-1 bg-gray-800 h-12 ">       
+                 <form onSubmit={(e)=>{
+                  e.preventDefault()
+                 }}  className="flex flex-col gap-6 w-[100%] text-white " >
+
+
+                  <h1 className="text-white text-4xl font-bold">{!isSignIn?"Sign Up":"Log In"}</h1> 
+                                
+
+                        {!isSignIn && <input ref={name} type="text" placeholder="Name" className="rounded-md p-1 bg-transparent h-12 mt-10 border"> 
+                              
                                
                              </input>}
-                         <input  ref={email} type="email" placeholder="Email" className=" rounded-md p-1 bg-gray-800 h-12 " >
+                         <input  ref={email} type="email" placeholder="Email" className=" rounded-md p-1 bg-transparent h-12 border">
 
                          </input>
 
-                         <input ref={password} type="password" placeholder="Password" className=" rounded-md p-1 bg-gray-800 h-12 ">
+                         <input ref={password} type="password" placeholder="Password" className=" rounded-md p-1 bg-transparent h-12 border">
                          
                          </input>
 
@@ -143,7 +151,7 @@ const Login=()=>{
                  </form>
 
                  
-             </div>
+              </div>
 
              
 
