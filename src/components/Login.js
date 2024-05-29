@@ -106,10 +106,10 @@ const Login=()=>{
                  }}  className="flex flex-col gap-6 w-[100%] text-white " >
 
 
-                  <h1 className="text-white text-4xl font-bold">{!isSignIn?"Sign Up":"Log In"}</h1> 
+                  <h1 className="text-white text-4xl font-bold mt-6">{!isSignIn?"Sign Up":"Log In"}</h1> 
                                 
 
-                        {!isSignIn && <input ref={name} type="text" placeholder="Name" className="rounded-md p-1 bg-transparent h-12 mt-10 border"> 
+                        {!isSignIn && <input ref={name} type="text" placeholder="Name" className="rounded-md p-1 bg-transparent h-12 mt-3 border"> 
                               
                                
                              </input>}
